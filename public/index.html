@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>前端站点（Public Repo）</title>
+</head>
+<body>
+  <h1>前端站点</h1>
+  <p>点击按钮测试后端 API：</p>
+  <button onclick="callApi()">测试后端</button>
+  <pre id="result"></pre>
+
+  <script>
+    // 第 5 步会替换成你的 Worker URL
+    const API_BASE = "https://YOUR_WORKER_URL";
+
+    async function callApi() {
+      const res = await fetch(`${API_BASE}/hello`);
+      const data = await res.json();
+      document.getElementById("result").innerText = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
